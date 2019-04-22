@@ -13,6 +13,4 @@ function searchMeetups(searchString) {
   ).then(response => response.json());
 }
 
-console.log(APIkeys.meetups);
-
 searchMeetups("Javascript").then(obj => console.log(obj));
