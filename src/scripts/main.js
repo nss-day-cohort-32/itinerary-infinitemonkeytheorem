@@ -1,3 +1,1 @@
-import APIkeys from "./modules/API.js";
-
-console.log(APIkeys);
+import "./modules/API-meetups.js";
