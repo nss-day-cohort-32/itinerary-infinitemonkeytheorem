@@ -65,4 +65,4 @@ $RECYCLE.BIN/
 node_modules/**/*
 src/bundle.js
 src/styles.css
-API/database.json
+api/*
