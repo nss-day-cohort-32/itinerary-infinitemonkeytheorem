@@ -1,0 +1,20 @@
+{
+  "api": {
+    "parks": {
+      "key": "HV7Bg6khwusHOHt9IAd8TtyTK",
+      "id": 1
+    },
+    "restaurants": {
+      "key": "817381c0888ad5f71232cde8acc4ab17",
+      "id": 2
+    },
+    "meetups": {
+      "key": "IP52WP7CIXGL7ZDP43",
+      "id": 3
+    },
+    "concerts": {
+      "key": "VljGRC0DhTR15ecGRXfkPFXQkBSiqh0x",
+      "id": 4
+    }
+  }
+}
