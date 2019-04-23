@@ -39,9 +39,3 @@ module.exports.searchMeetups = function(searchString) {
       });
     });
 };
-
-// console.log(
-//   buildCard({
-
-//   })
-// );
