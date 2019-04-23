@@ -1,7 +1,7 @@
+import { searchMeetups } from "./API-meetups";
 import { searchConcerts } from "./API-concerts";
 import { searchPark } from "./api-park";
 import { searchRestaurants } from "./API-restaurants";
-
 
 createGoListener();
 
@@ -11,9 +11,9 @@ function createGoListener() {
 }
 
 function search(event) {
+  document.querySelector("#root").innerHTML = "";
   let searchText = document.querySelector("#searchText").value;
   let searchType = document.querySelector("#searchType").value;
-  searchText = encodeURIComponent(searchText); // replaces " " with "%20", etc.
   switchboard(searchType, searchText);
 }
 
@@ -26,9 +26,11 @@ function switchboard(apiToSearch, searchString) {
       searchRestaurants(searchString);
       break;
     case "meetups":
-      // call meetups function
+      searchString = encodeURIComponent(searchString); // replaces " " with "%20", etc.
+      searchMeetups(searchString);
       break;
     case "concerts":
+      //searchString = encodeURIComponent(searchString); // replaces " " with "%20", etc.
       searchConcerts(searchString);
       break;
   }
