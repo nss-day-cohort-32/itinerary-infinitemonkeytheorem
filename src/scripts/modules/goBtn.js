@@ -10,6 +10,7 @@ function createGoListener() {
 }
 
 function search(event) {
+  document.querySelector("#root").innerHTML = "";
   let searchText = document.querySelector("#searchText").value;
   let searchType = document.querySelector("#searchType").value;
   switchboard(searchType, searchText);
