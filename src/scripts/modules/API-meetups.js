@@ -13,4 +13,5 @@ function searchMeetups(searchString) {
   ).then(response => response.json());
 }
 
-searchMeetups("Javascript").then(obj => console.log(obj));
+
+
