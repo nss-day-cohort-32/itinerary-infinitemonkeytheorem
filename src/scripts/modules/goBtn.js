@@ -1,9 +1,7 @@
-<<<<<<< HEAD
 import { searchConcerts } from "./API-concerts";
-=======
 import { searchPark } from "./api-park";
 import { searchRestaurants } from "./API-restaurants";
->>>>>>> master
+
 
 createGoListener();
 
@@ -31,11 +29,7 @@ function switchboard(apiToSearch, searchString) {
       // call meetups function
       break;
     case "concerts":
-<<<<<<< HEAD
-      console.log(`call concerts function with string: ${searchString}`, searchString, searchConcerts(searchString));
-=======
->>>>>>> master
-      // call concerts function
+      searchConcerts(searchString);
       break;
   }
 }
