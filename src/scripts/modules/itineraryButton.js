@@ -8,8 +8,8 @@ function getBtnElements(){
     addBtn.addEventListener("click", addToItinerary);
 }
 
-function addToItinerary(){
-    let itineraryItem = document.querySelector(`#card--${card.type}-${card.id}`);
+function addToItinerary(event){
+    let itineraryItem = event.target.value;
     let root = document.querySelector("#root");
     root.innerHTML = "";
     root.innerHTML += itineraryItem;
