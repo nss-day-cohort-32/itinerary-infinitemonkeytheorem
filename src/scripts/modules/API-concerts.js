@@ -7,9 +7,9 @@ import APIkeys from "../../../env/apiKeys.js";
 //                 <img src="#" alt="venueImage">
 //             </div>
 //             <div class="card-content">
-//                 <h1>EventTitle</h1>
-//                 <h3>Date/Time</h3>
-//                 <h3>Location</h3>
+//                 <h1>${item.name}</h1>
+//                 <h3>${item.date}</h3>
+//                 <h3>${item._embedded.venues[0].name}</h3>
 //             </div>
 //             <div class="card-contentExtended">
 //                 <p>Some Content</p>
@@ -23,7 +23,7 @@ function searchConcerts(input) {
     .then(events => events.json())
     .then(event => {
       event._embedded.events.forEach(item => {
-        console.log(`${item.name}`, item._embedded.venues[0].name);
+        console.log(`${item.name}`, item);
       });
     });
 };
