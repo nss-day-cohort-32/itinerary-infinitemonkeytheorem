@@ -1,3 +1,5 @@
+import { searchConcerts } from "./API-concerts";
+
 createGoListener();
 
 function createGoListener() {
@@ -27,7 +29,7 @@ function switchboard(apiToSearch, searchString) {
       // call meetups function
       break;
     case "concerts":
-      console.log("call concerts function with string: ", searchString);
+      console.log(`call concerts function with string: ${searchString}`, searchString, searchConcerts(searchString));
       // call concerts function
       break;
   }
