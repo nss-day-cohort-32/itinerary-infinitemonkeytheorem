@@ -1,4 +1,6 @@
 import { searchPark } from "./api-park";
+import { searchRestaurants } from "./API-restaurants";
+
 createGoListener();
 
 function createGoListener() {
@@ -20,8 +22,8 @@ function switchboard(apiToSearch, searchString) {
       searchPark(searchString);
       break;
     case "restaurants":
-      console.log("call restaurants function with string: ", searchString);
-      // call restaurants function
+      console.log("call restaurants function with string: ", searchRestaurants);
+      searchRestaurants(searchString);
       break;
     case "meetups":
       console.log("call meetups function with string: ", searchString);
