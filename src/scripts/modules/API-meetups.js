@@ -1,4 +1,5 @@
 import APIkeys from "../../../env/apiKeys";
+import { buildCard } from "./cardBuilder";
 
 function searchMeetups(searchString) {
   return fetch(
@@ -13,5 +14,18 @@ function searchMeetups(searchString) {
   ).then(response => response.json());
 }
 
-
-
+console.log(
+  buildCard({
+    type: "" /* parks, restaurants, etc.  */,
+    title: "",
+    subtitle: "",
+    image: {
+      url: "",
+      alt: ""
+    },
+    startTime: "" /* dateTime object */,
+    location: "",
+    extendedContent: "", // innerHTML content
+    id: "" /* make sure to pass unique values for each card */
+  })
+);
