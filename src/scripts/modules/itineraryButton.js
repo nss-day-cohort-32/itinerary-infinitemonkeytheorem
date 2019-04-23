@@ -9,7 +9,7 @@ function getBtnElements(){
 }
 
 function addToItinerary(event){
-    let itineraryItem = event.target.value;
+    let itineraryItem = event.target.value.innerHTML;
     let root = document.querySelector("#root");
     root.innerHTML = "";
     root.innerHTML += itineraryItem;
