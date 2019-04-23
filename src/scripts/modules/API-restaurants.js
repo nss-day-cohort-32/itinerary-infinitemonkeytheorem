@@ -1,6 +1,7 @@
 import APIkeys from "../../../env/apiKeys.js";
 import { buildCard } from "./cardBuilder";
 
+let idIndex = 0;
 
 module.exports.searchRestaurants = function (input) {
     return fetch(`https://developers.zomato.com/api/v2.1/search?q=${input}&city_id=1138`, {
@@ -12,9 +13,8 @@ module.exports.searchRestaurants = function (input) {
 .then(r => r.json())
 .then(results => {
     results.restaurants.forEach(element => {
-        console.log("cuisines", element.restaurant.cuisines);
-        console.log("photo", element.restaurant.url);
-        console.log("location", element.restaurant.location.address);
+
+        idIndex++;
 
         let cardHTML = {
             type: "restaurants",
@@ -31,7 +31,7 @@ module.exports.searchRestaurants = function (input) {
                 <p>Price Range: ${element.restaurant.price_range}/4</p>
                 <p>User Rating: ${element.restaurant.user_rating.aggregate_rating}/5</p>
             `, // innerHTML content
-            id: "" /* make sure to pass unique values for each card */
+            id: `${idIndex}` /* make sure to pass unique values for each card */
             };
 
         const newCard = buildCard(cardHTML);

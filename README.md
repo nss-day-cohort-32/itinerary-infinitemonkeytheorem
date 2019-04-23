@@ -1,1 +1,1 @@
-# itinerary-infinitemonkeytheorem
+# Infinite Monkey Theorem
