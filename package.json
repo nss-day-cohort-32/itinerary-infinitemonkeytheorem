@@ -31,5 +31,8 @@
     "postcss-nested": "^4.1.2",
     "postcss-preset-env": "^6.6.0",
     "postcss-simple-vars": "^5.0.2"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.1"
   }
 }
