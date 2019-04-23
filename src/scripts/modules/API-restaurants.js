@@ -8,6 +8,11 @@ const zAPI = {
             "user-key": `${APIkeys.restaurants}`
         } })
     .then(r => r.json());
+    .then(results => {
+        results.restaurants.forEach(element => {
+            console.log("element", element);
+        });
+    })
     }
 };
 const foodHTML = (restaurant) => {
