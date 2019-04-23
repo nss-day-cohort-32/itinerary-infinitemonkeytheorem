@@ -3,7 +3,38 @@
   src: url("./fonts/nashville.ttf");
 }
 
-h1 {
+header h1 {
   font-family: "nashville";
+}
 
+.splash {
+  margin-top: 6rem;
+
+  h1 {
+    letter-spacing: 1px;
+    font-size: 3rem;
+    line-height: 1.2;
+    color: black;
+    text-align: center;
+  }
+
+
+}
+
+.splash-gone {
+  height: 2.5rem;
+  text-align: center;
+  font-size: .8rem;
+
+  h1 {
+    margin: .4rem;
+  }
+
+  br {
+    content: ' ';
+  }
+
+  br:after {
+    content: ' ';
+  }
 }
