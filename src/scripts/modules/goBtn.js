@@ -10,7 +10,6 @@ function createGoListener() {
 function search(event) {
   let searchText = document.querySelector("#searchText").value;
   let searchType = document.querySelector("#searchType").value;
-  searchText = encodeURIComponent(searchText); // replaces " " with "%20", etc.
   switchboard(searchType, searchText);
 }
 
@@ -26,10 +25,12 @@ function switchboard(apiToSearch, searchString) {
       break;
     case "meetups":
       searchMeetups(searchString);
+
       console.log("call meetups function with string: ", searchString);
       // call meetups function
       break;
     case "concerts":
+      searchText = encodeURIComponent(searchText); // replaces " " with "%20", etc.
       console.log("call concerts function with string: ", searchString);
       // call concerts function
       break;
