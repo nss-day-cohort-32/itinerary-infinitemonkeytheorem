@@ -23,11 +23,38 @@ function searchConcerts(input) {
     .then(events => events.json())
     .then(event => {
       event._embedded.events.forEach(item => {
-        console.log(`${item.name}`, item);
+        let html = {
+          type: "Concert",  /* parks, restaurants, etc.  */
+          title: `${item.name}`,
+          subtitle: "",
+          image: {
+            url: `${item.images[0]}`,
+            alt: `${item.name}`
+          },
+          startTime: `${item.dates.start.localDate}`,  /* dateTime object */
+          location: `${item._embedded.venues[0].name}`,
+          extendedContent: "#", // innerHTML content
+          id: `${item.id}`  /* make sure to pass unique values for each card */
+        };
+        console.log(`${item.name}`, html);
       });
     });
 };
 searchConcerts("hip hop");
+
+// const concertCard = {
+//   type: "Concert",  /* parks, restaurants, etc.  */
+//   title: `${item.name}`,
+//   subtitle: "",
+//   image: {
+//     url: `${item.image[0]}`,
+//     alt: `${item.image.name}`
+//   },
+//   startTime: `${item.dates.start.localDate}`,  /* dateTime object */
+//   location: `${item._embedded.venues[0].name}`,
+//   extendedContent: "#", // innerHTML content
+//   id: `${item.id}`  /* make sure to pass unique values for each card */
+// };
 
 // const inputValue = document.querySelector("#concertsBtn").addEventListener("click", function(event){
 //  return document.querySelector("inputField").value;
