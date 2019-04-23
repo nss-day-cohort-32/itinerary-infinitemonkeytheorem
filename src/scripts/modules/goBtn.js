@@ -3,7 +3,6 @@ import { searchConcerts } from "./API-concerts";
 import { searchPark } from "./api-park";
 import { searchRestaurants } from "./API-restaurants";
 
-
 createGoListener();
 
 function createGoListener() {
@@ -27,16 +26,12 @@ function switchboard(apiToSearch, searchString) {
       searchRestaurants(searchString);
       break;
     case "meetups":
-      searchText = encodeURIComponent(searchText); // replaces " " with "%20", etc.
+      searchString = encodeURIComponent(searchString); // replaces " " with "%20", etc.
       searchMeetups(searchString);
       break;
     case "concerts":
-<<<<<<< HEAD
-      searchText = encodeURIComponent(searchText); // replaces " " with "%20", etc.
-
-=======
+      //searchString = encodeURIComponent(searchString); // replaces " " with "%20", etc.
       searchConcerts(searchString);
->>>>>>> master
       break;
   }
 }
