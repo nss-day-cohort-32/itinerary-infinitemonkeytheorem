@@ -5,12 +5,10 @@ module.exports.searchPark = function (searchString) {
     fetch(`https://data.nashville.gov/resource/74d7-b74t.json?${search}=Yes`)
         .then(result => result.json())
         .then(parks => {
-            console.log(parks);
             parks.forEach(park => {
                 // console.log(park); test
                 let address = park.mapped_location.human_address.split("\"");
                 var theAdress = `${address[3]}, ${address[7]} ${address[11]}`;
-                console.log(address);
                 var features = returnFeatures(park);
                 const card = buildCard({
                     type: "parks" /* parks, restaurants, etc.  */,
