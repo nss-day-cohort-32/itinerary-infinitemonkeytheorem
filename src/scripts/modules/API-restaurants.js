@@ -1,48 +1,42 @@
-
-fetch("https://developers.zomato.com/api/v2.1/search?entity_id=1138&entity_type=city&collection_id=1", {
-    headers: {
-         "Accept": "application/json",
-         "user-key": "817381c0888ad5f71232cde8acc4ab17"
+import APIkeys from "../../../env/apiKeys.js";
+const zAPI = {
+    getFood: function () {
+        return fetch("https://developers.zomato.com/api/v2.1/search?city_id=1138", {
+        headers: {
+            "Accept": "application/json",
+            // "user-key": "817381c0888ad5f71232cde8acc4ab17"
+            "user-key": `${APIkeys.restaurants}`
+        } })
+    .then(r => r.json());
     }
-})
-    .then(r => r.json())
-    .then(results => {
-            results.restaurants.forEach(restaurant => {
-                console.log("restaurant", restaurant);
-                console.log("name", restaurant.r);
-            });
-    });
-
-
-    // name
-    // average_cost_for_two
-    // cuisines
-    // events_url (website)
-    // location
-    // user_rating --> aggregate_rating
-
-
-
-    // createCard = (food) => {
-    //     return `
-    //         <div class="card">
-    //             <h2>${food.name}</h2>
-    //             <p><strong>Concepts Learned:</strong> ${food.name}</p>
-    //             <p><strong>Entry:</strong> ${food.name}</p>
-    //             <p><strong>Mood:</strong> ${food.name}</p>
-    //         </div>
-    //             `
-    // }
-    
-    // addFoodToDOM = (array) => {
-    
-    //     array.forEach(food => {
-    //         const restaurant = createEntry(food);
-    //         console.log(restaurant);
-    //         // const el = document.querySelector('.entry-container');
-    //         // el.innerHTML = entry;
-    //     });
-    // }
-    
-    // zAPI.getFood()
-    // .then(food => addFoodToDOM(food));
+};
+const foodHTML = (restaurant) => {
+    return `
+        <div class="card">
+        <h2>${restaurant.name}</h2>
+        <p>${restaurant}</p>
+        <p>${restaurant}</p>
+        <p>${restaurant}</p>
+        </div>
+    `;
+};
+// const addFoodToDOM = (array) => {
+//     array.forEach(element => {
+//         const restaurant = foodHTML(element);
+//         const container = document.querySelector(".container");
+//         const foodDiv = document.createElement("div");
+//         foodDiv.innerHTML = "<p>Hello</p>";
+//         container.appendChild(foodDiv);
+//     });
+// };
+const addFoodToDOM = (object) => {
+    for (var key in object) {
+        const restaurant = foodHTML(key);
+        console.log("restaurant", restaurant);
+        const container = document.querySelector(".container");
+        const foodDiv = document.createElement("div");
+        foodDiv.innerHTML = "<p>Hello</p>";
+        container.appendChild(foodDiv);
+    };
+};
+zAPI.getFood().then(restaurant => addFoodToDOM(restaurant));

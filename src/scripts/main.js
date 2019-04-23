@@ -1,2 +1,5 @@
-import APIkeys from "./modules/API.js";
 
+
+import "./modules/API-meetups.js";
+
+import "./modules/API-restaurants.js";
