@@ -1,33 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
-    <link rel="stylesheet" href="styles.css" type="text/css" />
-  </head>
-  <body>
-    <header class="splash-gone">
-      <!-- TODO: add class 'splash' then change to 'splash-gone' with JS-->
-      <h1>Welcome<br />to<br />Nashville</h1>
-    </header>
-    <div class="search">
-      <!-- TODO:  add "search-splashscreen" and remove "splash" via javascript-->
-      <input type="text" id="searchText" />
-      <div class="search-row">
-        <span>Search for: </span
-        ><select name="eventType" id="searchType"
-          ><option value="parks">Parks</option
-          ><option value="restaurants">Restaurants</option
-          ><option value="meetups">Meetups</option
-          ><option value="concerts">Concerts</option></select
-        ><button id="go">Go !</button>
-      </div>
-    </div>
 
-    <div id="root"></div>
-    <script src="bundle.js"></script>
-    <script src="http://localhost:35729/livereload.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+  <link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+
+<body>
+  <header class="splash-gone">
+    <!-- TODO: add class 'splash' then change to 'splash-gone' with JS-->
+    <h1>Welcome<br />to<br />Nashville</h1>
+  </header>
+  <div class="search">
+    <!-- TODO:  add "search-splashscreen" and remove "splash" via javascript-->
+    <input type="text" id="searchText" />
+    <div class="search-row">
+      <span>Search for: </span><select name="eventType" id="searchType">
+        <option value="parks">Parks</option>
+        <option value="restaurants">Restaurants</option>
+        <option value="meetups">Meetups</option>
+        <option value="concerts">Concerts</option>
+      </select><button id="go">Go !</button>
+    </div>
+  </div>
+
+  <div id="root"></div>
+  <script src="bundle.js"></script>
+  <script src="http://localhost:35729/livereload.js"></script>
+</body>
+
 </html>
