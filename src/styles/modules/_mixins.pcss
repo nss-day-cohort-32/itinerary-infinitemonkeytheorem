@@ -1,0 +1,40 @@
+/* tiny phones */
+$screen-xs-min: 425px;
+/* larger phones, tiny phones in landscape */
+$screen-sm-min: 576px;
+/* small tablets, large phones in landscape */
+$screen-md-min: 768px;
+/* large tablets, small tablets in landscape */
+$screen-lg-min: 992px;
+/* large tablets and desktops */
+$screen-xl-min: 1200px;
+
+@define-mixin xs {
+  @media (min-width: #{$screen-xs-min}) {
+    @content;
+  }
+}
+
+@define-mixin sm {
+  @media (min-width: #{$screen-sm-min}) {
+    @content;
+  }
+}
+
+@define-mixin md {
+  @media (min-width: #{$screen-md-min}) {
+    @content;
+  }
+}
+
+@define-mixin lg {
+  @media (min-width: #{$screen-lg-min}) {
+    @content;
+  }
+}
+
+@define-mixin xl {
+  @media (min-width: #{$screen-xl-min}) {
+    @content;
+  }
+}

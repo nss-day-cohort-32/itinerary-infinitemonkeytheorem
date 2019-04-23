@@ -66,3 +66,4 @@ node_modules/**/*
 src/bundle.js
 src/styles.css
 env/*
+src/bundle.js
