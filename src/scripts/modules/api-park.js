@@ -1,8 +1,10 @@
+import { KeyObject } from "crypto";
+
 fetch("https://data.nashville.gov/resource/74d7-b74t.json")
     .then(result => result.json())
     .then(parks => {
-        console.log(parks);
         parks.map(createHtml);
+        parks;
     });
 
 
@@ -32,5 +34,4 @@ function createHtml(event) {
     // card.appendChild(cardHeader);
     // card.appendChild(cardContent);
 }
-
 
