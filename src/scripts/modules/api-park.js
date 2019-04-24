@@ -4,7 +4,7 @@ module.exports.searchPark = function(searchString) {
   fetch(`https://data.nashville.gov/resource/74d7-b74t.json?${search}=Yes`)
     .then(result => result.json())
     .then(parks => {
-      parks.forEach(park => {
+      parks.forEach((park, index) => {
         // console.log(park); test
         let address = park.mapped_location.human_address.split("\"");
         var theAdress = `${address[3]}, ${address[7]} ${address[11]}`;
@@ -21,7 +21,7 @@ module.exports.searchPark = function(searchString) {
           startTime: "" /* dateTime object */,
           location: theAdress,
           extendedContent: `<p>features: ${features}</p>`, // innerHTML content
-          id: "" /* make sure to pass unique values for each card */
+          id: index /* make sure to pass unique values for each card */
         });
         const root = document.querySelector("#root");
         root.innerHTML += card;
