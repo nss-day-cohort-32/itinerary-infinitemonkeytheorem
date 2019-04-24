@@ -42,4 +42,17 @@
   }
 
 
+  &__expand {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .3s;
+  }
+
+  &__expanded {
+    max-height: none;
+    transition: max-height .3s;
+    padding-bottom: .3rem;
+  }
+
+
 }

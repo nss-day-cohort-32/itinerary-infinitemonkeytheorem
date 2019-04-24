@@ -32,7 +32,7 @@ module.exports = {
           Pick me!!
     </button>
       </div>
-      <div class="card__expanded">${card.extendedContent}</div>
+      <div class="card__expand card__expandable">${card.extendedContent}</div>
 </div >`;
   }
 };
