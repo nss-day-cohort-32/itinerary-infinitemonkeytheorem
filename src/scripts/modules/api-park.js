@@ -1,12 +1,11 @@
 import { buildCard } from "./cardBuilder";
-module.exports.searchPark = function(searchString) {
+module.exports.searchPark = function (searchString) {
   var search = searchString.split(" ").join("_");
   fetch(`https://data.nashville.gov/resource/74d7-b74t.json?${search}=Yes`)
     .then(result => result.json())
     .then(parks => {
       parks.forEach(park => {
-        // console.log(park); test
-        let address = park.mapped_location.human_address.split("\"");
+        var address = park.mapped_location.human_address.split("\"");
         var theAdress = `${address[3]}, ${address[7]} ${address[11]}`;
         var features = returnFeatures(park);
         const card = buildCard({
@@ -14,9 +13,10 @@ module.exports.searchPark = function(searchString) {
           title: `${park.park_name}`,
           subtitle: `${park.notes}`,
           image: {
-            url: "",
-            alt: ""
+            url: "<../../img/placeholder.jpg",
+            alt: "placeholder"
           },
+          startDate: "",
           startTime: "" /* dateTime object */,
           location: theAdress,
           extendedContent: `<p>features: ${features}</p>`, // innerHTML content
@@ -24,7 +24,6 @@ module.exports.searchPark = function(searchString) {
         });
         const root = document.querySelector("#root");
         root.innerHTML += card;
-
         // console.log(card); html test
       });
     });
