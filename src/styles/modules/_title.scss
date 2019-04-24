@@ -5,7 +5,6 @@
 
 header {
   & h1 {
-
     font-family: "nashville";
   }
 
@@ -29,7 +28,7 @@ header {
     letter-spacing: 1px;
     font-size: 3rem;
     line-height: 1.2;
-    color: black;
+    color: white;
     text-align: center;
   }
 
@@ -42,7 +41,8 @@ header {
   font-size: .8rem;
 
   h1 {
-    margin: .4rem;
+    margin-top: 0.5rem;
+    color: white;
   }
 
   br {
@@ -52,4 +52,8 @@ header {
   br:after {
     content: ' ';
   }
+}
+
+.search-row span {
+  color: white;
 }

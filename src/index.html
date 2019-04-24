@@ -11,22 +11,24 @@
       <header class="splash">
         <h1>Welcome<br />to<br />Nashville</h1>
         <div id="itineraryBtn">
-          <img src="img/_ionicons_svg_md-calendar.svg" alt="itinerary icon" />
+          <img src="img/vectorpaint.svg" alt="itinerary icon" />
         </div>
       </header>
       <div id="search" class="search-splashscreen">
-        <input type="text" id="searchText" />
         <div class="search-row">
-          <span>Search for: </span
-          ><select
-            class="mdc-select__native_control"
-            name="eventType"
-            id="searchType"
-            ><option value="parks">Parks</option
-            ><option value="restaurants">Restaurants</option
-            ><option value="meetups">Meetups</option
-            ><option value="concerts">Concerts</option></select
-          ><button class="mdc-button mdc-button--raised" id="go">Go !</button>
+          <div>
+            <span>Search for: </span
+            ><select
+              class="mdc-select__native_control"
+              name="eventType"
+              id="searchType"
+              ><option value="parks">Parks</option
+              ><option value="restaurants">Restaurants</option
+              ><option value="meetups">Meetups</option
+              ><option value="concerts">Concerts</option></select
+          ></div>
+          <input type="text" id="searchText" />
+          <button class="mdc-button mdc-button--raised" id="go">Go !</button>
         </div>
       </div>
       <article id="itineraryContainer" class="itinerary-hide">

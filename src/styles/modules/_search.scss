@@ -1,28 +1,18 @@
 .search {
-  display: flex;
-  flex-direction: row;
-  width: 90%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
-  justify-content: center;
 
   input {
-    width: 50%;
     font-size: .9rem;
     padding: .2rem;
 
   }
 
   .search-row {
-
-
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
-    span {
-      display: none;
-    }
 
     select {
       font-size: .9rem;
@@ -31,7 +21,6 @@
 
     button {
       margin-left: .2rem;
-      padding: .15rem .3rem;
     }
   }
 
@@ -39,13 +28,6 @@
 }
 
 .search-splashscreen {
-
-  display: flex;
-  flex-direction: column;
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 3rem;
 
   input {
     height: 1.8rem;
@@ -58,23 +40,21 @@
     margin-top: .8rem;
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: space-between;
 
     span {
       font-size: 1.2rem;
-      padding-top: .1rem;
     }
 
     select {
       height: 1.6rem;
-      width: 40%;
     }
 
 
     button {
-      width: 20%;
-      background-color: $mainBlue;
-
+      background-color: goldenrod;
+      margin-left: .2rem;
     }
   }
 
@@ -86,4 +66,13 @@
 
 
 
+}
+
+#search {
+  background-color: rgba(110, 110, 110, 0.6);
+  padding: 1em;
+  box-shadow: 0px 0px 6px grey;
+  text-align: center;
+  display: flex;
+  justify-content: center;
 }
