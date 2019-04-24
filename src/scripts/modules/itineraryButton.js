@@ -3,6 +3,22 @@ document.querySelector("#root").addEventListener("click", addToItinerary);
 
 let itinerary = {};
 
+function addToDatabase(url = "", data = {}) {
+    return fetch(url, {
+        method: "POST",
+        mode: "cors",
+        cache: "no-cache",
+        credentials: "same-origin",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        redirect: "follow",
+        referrer: "no-referrer",
+        body: JSON.stringify(data),
+    })
+    .then(response => response.json());
+};
+
 function addToItinerary(event) {
   // select necessary card values
   let itineraryItem = event.target.parentElement.closest(".card").querySelector("#cardTitle").innerHTML;
@@ -34,26 +50,20 @@ function addToItinerary(event) {
     switch (itineraryItemType) {
       case "Park":
         itinerary.Park = databaseListing;
-        // put in itinerary.parks
         break;
       case "Concert":
         itinerary.Concert = databaseListing;
         break;
       case "Meetup":
         itinerary.Meetup = databaseListing;
-        // put in meetup
         break;
       case "Restaurant":
         itinerary.Restaurant = databaseListing;
-        // put in restaurant
         break;
     };
 
-    document.querySelector("#itineraryContainer").classList.remove("itinerary-hide");
+    addToDatabase("http://localhost:8088/Itinerary", itinerary);
 
-    // fetch("http://localhost:8088/Itinerary", {
-    //   method: "GET",
-    //   body: "",
-    // });
+    document.querySelector("#itineraryContainer").classList.remove("itinerary-hide");
   }
 };
