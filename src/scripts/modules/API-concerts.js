@@ -12,7 +12,7 @@ module.exports.searchConcerts = function(input) {
     .then(event => {
       event._embedded.events.forEach(item => {
         let html = {
-          type: "concerts" /* parks, restaurants, etc. */,
+          type: "Concert" /* parks, restaurants, etc. */,
           title: `${item.name}`,
           subtitle: "",
           image: {
