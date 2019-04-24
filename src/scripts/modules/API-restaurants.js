@@ -22,9 +22,10 @@ module.exports.searchRestaurants = function(input) {
             title: `${element.restaurant.name}`,
             subtitle: "",
             image: {
-                url: `${element.restaurant.url}`,
-                alt: ""
+                url: "img/placeholder.jpg",
+                alt: "placeholder image"
             },
+            startDate: "",
             startTime: "" /* dateTime object */,
             location: `${element.restaurant.location.address}`,
             extendedContent: `
