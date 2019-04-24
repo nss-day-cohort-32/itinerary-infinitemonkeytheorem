@@ -1,38 +1,16 @@
 {
   "Itinerary": [
     {
-      "Concert": "The Black Keys - Let's Rock Tour at Bridgestone Arena",
+      "Park": "Two Rivers Park at 3150 McGavock Pike, Nashville TN",
       "id": 1
     },
     {
-      "Concert": "The Black Keys - Let's Rock Tour at Bridgestone Arena",
-      "Restaurant": "P.F. Chang's at 2525 West End Ste #2535 37203",
+      "Park": "Shelby Park at Shelby Ave at South 20th St, Nashville TN",
       "id": 2
     },
     {
-      "Concert": "The Black Keys - Let's Rock Tour at Bridgestone Arena",
-      "Restaurant": "P.F. Chang's at 2525 West End Ste #2535 37203",
-      "Park": "Shelby Park at Shelby Ave at South 20th St, Nashville TN",
+      "Park": "Two Rivers Park at 3150 McGavock Pike, Nashville TN",
       "id": 3
-    },
-    {
-      "Park": "Shelby Park at Shelby Ave at South 20th St, Nashville TN",
-      "id": 4
-    },
-    {
-      "Park": "Shelby Park at Shelby Ave at South 20th St, Nashville TN",
-      "id": 5
-    },
-    {
-      "Park": "Shelby Park at Shelby Ave at South 20th St, Nashville TN",
-      "Concert": "Wu-tang Clan: 36 Chambers 25th Anniversary Celebration at Ryman Auditorium",
-      "id": 6
-    },
-    {
-      "Park": "Shelby Park at Shelby Ave at South 20th St, Nashville TN",
-      "Concert": "Wu-tang Clan: 36 Chambers 25th Anniversary Celebration at Ryman Auditorium",
-      "Restaurant": "Mas Tacos Por Favor at 732 McFerrin Avenue, Nashville 37206",
-      "id": 7
     }
   ]
 }

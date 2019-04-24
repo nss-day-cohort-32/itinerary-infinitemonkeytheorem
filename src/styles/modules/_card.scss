@@ -1,9 +1,10 @@
 .card {
   max-width: 350px;
-
   padding-bottom: 1rem .6rem;
   border: 1px solid gray;
   margin: 1rem;
+  background-color: white;
+  color: black;
 
 
 
@@ -19,6 +20,8 @@
 
   &__content {
     padding: .5rem;
+    display: flex;
+    justify-content: center;
   }
 
 
@@ -28,6 +31,23 @@
     margin-right: auto;
     display: flex;
     flex-direction: row-reverse;
+    justify-content: center;
+  }
+
+  &__expand {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .3s;
+    padding: .5rem;
+  }
+
+  &__expanded {
+    max-height: none;
+    transition: max-height .3s;
+    padding-bottom: .3rem;
+    padding: .5rem;
+    display: flex;
+    justify-content: center;
   }
 
   &__btn {
@@ -37,22 +57,41 @@
 
     &--primary {
       order: -1;
-      background-color: $primaryAction;
+      background-color: white;
+      color: goldenrod;
     }
+
   }
 
 
-  &__expand {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height .3s;
-  }
+}
 
-  &__expanded {
-    max-height: none;
-    transition: max-height .3s;
-    padding-bottom: .3rem;
-  }
+.card__btn--primary:hover {
+  background-color: goldenrod;
+  color: white;
+  border: 1px solid white;
+}
+
+.card__article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
 
+
+}
+
+.card__btn--extend {
+  background-color: white;
+  color: goldenrod;
+  border: 1px solid goldenrod;
+}
+
+.card__btn--extend:hover {
+  background-color: goldenrod;
+  color: white;
+}
+
+.card__expanded {
+  padding: .5rem;
 }
