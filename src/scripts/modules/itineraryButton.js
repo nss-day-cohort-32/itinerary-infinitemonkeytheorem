@@ -1,13 +1,48 @@
+import { extendCard } from "./extendCard";
+
 // How do I select the button if it hasn't been inserted to the dom yet? Current form is clickable from anywhere in the root div.
-document.querySelector("#root").addEventListener("click", addToItinerary);
+document.querySelector("#root").addEventListener("click", buttonHandler);
+
+let itinerary = {};
+
+function buttonHandler(event) {
+  let buttonType = event.target.id.slice(8, 11);
+  if (buttonType === "add") {
+    addToItinerary(event);
+  } else if (buttonType === "ext") {
+    extendCard(event);
+  }
+}
+function addToDatabase(url = "", data = {}) {
+  return fetch(url, {
+    method: "POST",
+    mode: "cors",
+    cache: "no-cache",
+    credentials: "same-origin",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    redirect: "follow",
+    referrer: "no-referrer",
+    body: JSON.stringify(data)
+  }).then(response => response.json());
+}
 
 function addToItinerary(event) {
-  if (event.srcElement.nodeName === "BUTTON") {
-    // select necessary card values
-    let itineraryItem = event.target.parentElement.closest(".mdc-card").querySelector("#cardTitle").innerHTML;
-    let itineraryItemLocale = event.target.parentElement.closest(".mdc-card").querySelector("#eventLocation").innerHTML;
-    let itineraryItemType = event.target.parentElement.closest(".mdc-card").id.split("--")[1].split("-")[0];
+  // select necessary card values
+  let itineraryItem = event.target.parentElement
+    .closest(".card")
+    .querySelector("#cardTitle").innerHTML;
+  let itineraryItemLocale = event.target.parentElement
+    .closest(".card")
+    .querySelector("#eventLocation").innerHTML;
+  let itineraryItemType = event.target.parentElement
+    .closest(".card")
+    .id.split("--")[1]
+    .split("-")[0];
+  console.log("event slice", event.target.id.slice(8, 11));
 
+  if (event.target.id.slice(8, 11) === "add") {
     // select necessary dom elements
     let myItinerary = document.querySelector("#itinerary");
     let searchItems = document.querySelector("#root");
@@ -22,31 +57,42 @@ function addToItinerary(event) {
     myItinerary.appendChild(myItineraryContent);
 
     // sets event item html format
-    let listing = document.createTextNode(`${itineraryItemType}: ${itineraryItem} at ${itineraryItemLocale}`);
+    let listing = document.createTextNode(
+      `${itineraryItemType}: ${itineraryItem} at ${itineraryItemLocale}`
+    );
+    let databaseListing = `${itineraryItem} at ${itineraryItemLocale}`;
 
     // append new element to appended div element
     myItineraryContent.appendChild(listing);
-  };
-};
 
-// This function will need to be alter to add items to json database as well as use a PUT method to replace old cards with new selects
+    switch (itineraryItemType) {
+      case "Park":
+        itinerary.Park = databaseListing;
+        break;
+      case "Concert":
+        itinerary.Concert = databaseListing;
+        break;
+      case "Meetup":
+        itinerary.Meetup = databaseListing;
+        break;
+      case "Restaurant":
+        itinerary.Restaurant = databaseListing;
+        break;
+    }
 
-// fetch(`http://localhost:8088/resource/${id}`, {
-//     method: "PUT",
-//     headers: {
-//         "Content-Type": "application/json"
-//     },
-//     body: JSON.stringify(objectContainingNewProperties)
-// })
-// .then(res => res.json());
+    addToDatabase("http://localhost:8088/Itinerary", itinerary);
 
-// First focus will be getting everyone connected at MVP. Pull results and successfully post to DOM.
-// Basic style for cards
-// Build itinerary and persist in json database
- // Build a PUT function that will replace items in the itinerary with new selections
- // Add the ability to save an itinerary and create a new itinerary
- // Add ability to view different itineraries
- // Add nav bar to show desired fields
-// Further styling finalizations
-// Finialize README.md and stress test app
-// If we have time we will work on other stretch goals
+    document
+      .querySelector("#itineraryContainer")
+      .classList.remove("itinerary-hide");
+  }
+
+  document
+    .querySelector("#itineraryContainer")
+    .classList.remove("itinerary-hide");
+
+  // fetch("http://localhost:8088/Itinerary", {
+  //   method: "GET",
+  //   body: "",
+  // });
+}

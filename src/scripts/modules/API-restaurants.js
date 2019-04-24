@@ -18,20 +18,18 @@ module.exports.searchRestaurants = function(input) {
       results.restaurants.forEach(element => {
         idIndex++;
         let cardHTML = {
-          type: "restaurants",
-          title: `${element.restaurant.name}`,
-          subtitle: "",
-          image: {
-            url: "img/placeholder.jpg",
-            alt: "placeholder image"
-          },
-          startDate: "",
-          startTime: "" /* dateTime object */,
-          location: `${element.restaurant.location.address}`,
-          extendedContent: `
-                <p><a href="${
-                  element.restaurant.url
-                }" target="_blank">Website</a></p>
+            type: "Restaurant",
+            title: `${element.restaurant.name}`,
+            subtitle: "",
+            image: {
+                url: "img/placeholder.jpg",
+                alt: "placeholder image"
+            },
+            startDate: "",
+            startTime: "" /* dateTime object */,
+            location: `${element.restaurant.location.address}`,
+            extendedContent: `
+                <p><a href="${element.restaurant.url}" target="_blank">Website</a></p>
                 <p>Price Range: ${element.restaurant.price_range}/4</p>
                 <p>User Rating: ${
                   element.restaurant.user_rating.aggregate_rating
