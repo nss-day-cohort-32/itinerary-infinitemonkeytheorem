@@ -47,7 +47,8 @@
 
     &--primary {
       order: -1;
-      background-color: $primaryAction;
+      background-color: white;
+      color: goldenrod;
     }
 
   }
@@ -56,7 +57,9 @@
 }
 
 .card__btn--primary:hover {
-  background-color: gray;
+  background-color: goldenrod;
+  color: white;
+  border: 1px solid white;
 }
 
 .card__article {
@@ -67,13 +70,30 @@
     max-height: 0;
     overflow: hidden;
     transition: max-height .3s;
+    padding: .5rem;
   }
 
   &__expanded {
     max-height: none;
     transition: max-height .3s;
     padding-bottom: .3rem;
+    padding: .5rem;
   }
 
 
+}
+
+.card__btn--extend {
+  background-color: white;
+  color: goldenrod;
+  border: 1px solid goldenrod;
+}
+
+.card__btn--extend:hover {
+  background-color: goldenrod;
+  color: white;
+}
+
+.card__expanded {
+  padding: .5rem;
 }
