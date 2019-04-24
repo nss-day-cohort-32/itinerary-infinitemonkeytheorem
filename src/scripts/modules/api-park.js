@@ -17,6 +17,7 @@ module.exports.searchPark = function(searchString) {
             url: "",
             alt: ""
           },
+          startDate: "",
           startTime: "" /* dateTime object */,
           location: theAdress,
           extendedContent: `<p>features: ${features}</p>`, // innerHTML content

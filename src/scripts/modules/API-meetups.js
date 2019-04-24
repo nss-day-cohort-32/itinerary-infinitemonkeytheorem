@@ -27,6 +27,7 @@ module.exports.searchMeetups = function(searchString) {
             url: img,
             alt: event.name.text
           },
+          startDate: "",
           startTime: event.start.local /* dateTime object */,
           location: event.venue.address.localized_address_display,
           extendedContent: event.description.html, // innerHTML content

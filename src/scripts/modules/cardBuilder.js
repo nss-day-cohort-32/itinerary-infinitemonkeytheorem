@@ -1,29 +1,38 @@
 module.exports = {
   buildCard: function(card) {
+    console.log(card.image.url);
+    if (card.image.url === "") {
+      card.image.url = "img/placeholder.jpg";
+    }
     return `
-  <div class="mdc-card" id="card--${card.type}-${card.id}">
-    <div class="mdc-card__image">
-      <img src="${card.image.url}" alt="${card.image.alt}">
-    </div>
-    <div class="mdc-card__content">
-      <div class="mdc-card__meta">
-        ${card.startDate}
-        ${card.startTime}
+    <div class="card" id="card--${card.type}-${card.id}">
+      <div class="card__image">
+        <img src="${card.image.url}" alt="${card.image.alt}" />
       </div>
-      <article class="mdc-card__article">
-        <h3 id="cardTitle">${card.title}</h3>
-        <p>${card.subtitle}</p>
-        <p id="cardLocation">${card.location}</p>
-      </article>
-    </div>
-    <div class="mdc-card__action">
-      <button class="addBtn" id="button--${card.type}-${card.id}">
-        Pick me!!
-      </button>
-    </div>
-    <div class="mdc-card__expanded">
-      ${card.extendedContent}
-    </div>
-  </div>`;
+      <div class="card__content">
+        <div class="card__meta">
+          ${card.startDate}
+          ${card.startTime}
+        </div>
+        <article class="card__article">
+          <h3 id="cardTitle">${card.title}</h3>
+          <p>${card.subtitle}</p>
+          <p id="eventLocation">${card.location}</p>
+        </article>
+      </div>
+      <div class="card__action">
+        <button
+          class="card__btn card__btn--extend"
+          id="button--extend-${card.type}-${card.id}">
+          More Info</button>
+        <button
+          class="card__btn card__btn--primary"
+          id="button--${card.type}-${card.id}"
+        >
+          Pick me!!
+    </button>
+      </div>
+      <div class="card__expanded">${card.extendedContent}</div>
+</div >`;
   }
 };

@@ -3,6 +3,7 @@ import { searchConcerts } from "./API-concerts";
 import { searchPark } from "./api-park";
 import { searchRestaurants } from "./API-restaurants";
 
+var splash = 1;
 createGoListener();
 
 function createGoListener() {
@@ -11,7 +12,20 @@ function createGoListener() {
 }
 
 function search(event) {
+  if (splash === 1) {
+    splash = 0;
+    let header = document.querySelector("header");
+    header.classList.replace("splash", "splash-gone");
+    let search = document.querySelector("#search");
+    search.classList.replace("search-splashscreen", "search");
+  }
+
   document.querySelector("#root").innerHTML = "";
+  let itineraryClasses = document.querySelector("#itineraryContainer")
+    .classList;
+  if (!itineraryClasses.contains("itinerary-hide")) {
+    itineraryClasses.add("itinerary-hide");
+  }
   let searchText = document.querySelector("#searchText").value;
   let searchType = document.querySelector("#searchType").value;
   switchboard(searchType, searchText);
