@@ -3,12 +3,12 @@
 @import "modules/_vars.scss";
 @import "modules/_mixins.pcss";
 @import "modules/_global.scss";
+
 /*   Begin components section   */
 
 @import "modules/_title.scss";
-
-
-
+@import "modules/_root.scss";
+@import "modules/_card.scss";
 
 
 @import "modules/_search.scss";
