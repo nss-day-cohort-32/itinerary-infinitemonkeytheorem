@@ -9,6 +9,7 @@
 @import "modules/_title.scss";
 @import "modules/_root.scss";
 @import "modules/_card.scss";
+@import "modules/_itinerary.scss";
 
 
 @import "modules/_search.scss";

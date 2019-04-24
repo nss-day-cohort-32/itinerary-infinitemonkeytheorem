@@ -19,7 +19,13 @@ function search(event) {
     let search = document.querySelector("#search");
     search.classList.replace("search-splashscreen", "search");
   }
+
   document.querySelector("#root").innerHTML = "";
+  let itineraryClasses = document.querySelector("#itineraryContainer")
+    .classList;
+  if (!itineraryClasses.contains("itinerary-hide")) {
+    itineraryClasses.add("itinerary-hide");
+  }
   let searchText = document.querySelector("#searchText").value;
   let searchType = document.querySelector("#searchType").value;
   switchboard(searchType, searchText);
