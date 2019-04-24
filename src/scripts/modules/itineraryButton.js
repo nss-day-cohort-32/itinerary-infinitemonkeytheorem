@@ -59,9 +59,24 @@ function addToItinerary(event) {
   myItinerary.appendChild(myItineraryContent);
 
   // sets event item html format
-  let listing = document.createTextNode(
-    `${itineraryItemType}: ${itineraryItem} at ${itineraryItemLocale}`
-  );
+  {
+    //heading (type of event)
+    let heading = document.createElement("h3");
+    heading.innerHTML = itineraryItemType;
+    myItineraryContent.appendChild(heading);
+
+    //Event name
+    let eventName = document.createElement("p");
+    eventName.innerHTML = itineraryItem;
+    myItineraryContent.appendChild(eventName);
+
+    //Event location
+    let eventLocation = document.createElement("p");
+    eventLocation.innerHTML = itineraryItemLocale;
+    myItineraryContent.appendChild(eventLocation);
+  }
+
+  // Build database object
   let databaseListing = `${itineraryItem} at ${itineraryItemLocale}`;
 
   // append new element to appended div element
