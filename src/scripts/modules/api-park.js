@@ -10,7 +10,7 @@ module.exports.searchPark = function(searchString) {
         var theAdress = `${address[3]}, ${address[7]} ${address[11]}`;
         var features = returnFeatures(park);
         const card = buildCard({
-          type: "parks" /* parks, restaurants, etc.  */,
+          type: "Park" /* parks, restaurants, etc.  */,
           title: `${park.park_name}`,
           subtitle: `${park.notes}`,
           image: {

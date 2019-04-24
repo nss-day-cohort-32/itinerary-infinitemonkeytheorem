@@ -13,7 +13,7 @@ module.exports = {
       <article class="mdc-card__article">
         <h3 id="cardTitle">${card.title}</h3>
         <p>${card.subtitle}</p>
-        <p id="eventLocation">${card.location}</p>
+        <p id="cardLocation">${card.location}</p>
       </article>
     </div>
     <div class="mdc-card__action">

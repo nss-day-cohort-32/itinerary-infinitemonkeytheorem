@@ -20,7 +20,7 @@ module.exports.searchMeetups = function(searchString) {
         console.log(`index: ${index} url: ${img}`);
 
         let cardObj = {
-          type: "meetups" /* parks, restaurants, etc.  */,
+          type: "Meetup" /* parks, restaurants, etc.  */,
           title: event.name.html,
           subtitle: event.summary,
           image: {

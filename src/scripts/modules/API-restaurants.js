@@ -17,7 +17,7 @@ module.exports.searchRestaurants = function (input) {
         idIndex++;
 
         let cardHTML = {
-            type: "restaurants",
+            type: "Restaurant",
             title: `${element.restaurant.name}`,
             subtitle: "",
             image: {
