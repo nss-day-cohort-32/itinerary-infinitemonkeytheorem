@@ -11,9 +11,9 @@ module.exports = {
         ${card.startTime}
       </div>
       <article class="mdc-card__article">
-        <h3>${card.title}</h3>
+        <h3 id="cardTitle">${card.title}</h3>
         <p>${card.subtitle}</p>
-        <p>${card.location}</p>
+        <p id="eventLocation">${card.location}</p>
       </article>
     </div>
     <div class="mdc-card__action">
