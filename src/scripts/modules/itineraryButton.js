@@ -1,29 +1,45 @@
+import { extendCard } from "./extendCard";
+
 // How do I select the button if it hasn't been inserted to the dom yet? Current form is clickable from anywhere in the root div.
-document.querySelector("#root").addEventListener("click", addToItinerary);
+document.querySelector("#root").addEventListener("click", buttonHandler);
 
 let itinerary = {};
 
+function buttonHandler(event) {
+  let buttonType = event.target.id.slice(8, 11);
+  if (buttonType === "add") {
+    addToItinerary(event);
+  } else if (buttonType === "ext") {
+    extendCard(event);
+  }
+}
 function addToDatabase(url = "", data = {}) {
-    return fetch(url, {
-        method: "POST",
-        mode: "cors",
-        cache: "no-cache",
-        credentials: "same-origin",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        redirect: "follow",
-        referrer: "no-referrer",
-        body: JSON.stringify(data),
-    })
-    .then(response => response.json());
-};
+  return fetch(url, {
+    method: "POST",
+    mode: "cors",
+    cache: "no-cache",
+    credentials: "same-origin",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    redirect: "follow",
+    referrer: "no-referrer",
+    body: JSON.stringify(data)
+  }).then(response => response.json());
+}
 
 function addToItinerary(event) {
   // select necessary card values
-  let itineraryItem = event.target.parentElement.closest(".card").querySelector("#cardTitle").innerHTML;
-  let itineraryItemLocale = event.target.parentElement.closest(".card").querySelector("#eventLocation").innerHTML;
-  let itineraryItemType = event.target.parentElement.closest(".card").id.split("--")[1].split("-")[0];
+  let itineraryItem = event.target.parentElement
+    .closest(".card")
+    .querySelector("#cardTitle").innerHTML;
+  let itineraryItemLocale = event.target.parentElement
+    .closest(".card")
+    .querySelector("#eventLocation").innerHTML;
+  let itineraryItemType = event.target.parentElement
+    .closest(".card")
+    .id.split("--")[1]
+    .split("-")[0];
   console.log("event slice", event.target.id.slice(8, 11));
 
   if (event.target.id.slice(8, 11) === "add") {
@@ -41,7 +57,9 @@ function addToItinerary(event) {
     myItinerary.appendChild(myItineraryContent);
 
     // sets event item html format
-    let listing = document.createTextNode(`${itineraryItemType}: ${itineraryItem} at ${itineraryItemLocale}`);
+    let listing = document.createTextNode(
+      `${itineraryItemType}: ${itineraryItem} at ${itineraryItemLocale}`
+    );
     let databaseListing = `${itineraryItem} at ${itineraryItemLocale}`;
 
     // append new element to appended div element
@@ -60,10 +78,21 @@ function addToItinerary(event) {
       case "Restaurant":
         itinerary.Restaurant = databaseListing;
         break;
-    };
+    }
 
     addToDatabase("http://localhost:8088/Itinerary", itinerary);
 
-    document.querySelector("#itineraryContainer").classList.remove("itinerary-hide");
+    document
+      .querySelector("#itineraryContainer")
+      .classList.remove("itinerary-hide");
   }
-};
+
+  document
+    .querySelector("#itineraryContainer")
+    .classList.remove("itinerary-hide");
+
+  // fetch("http://localhost:8088/Itinerary", {
+  //   method: "GET",
+  //   body: "",
+  // });
+}
