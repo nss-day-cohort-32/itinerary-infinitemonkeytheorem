@@ -16,11 +16,15 @@ Cards can be selected to add the event to your chosen itinerary.
 ## Download the App
 
 ### Clone the repo
-* Open Git Bash.
-* Change the current working directory to the location where you want the cloned directory to be made.
-* Type: git clone git@github.com:nss-day-cohort-32/itinerary-infinitemonkeytheorem.git
-* Press Enter
-* Type: npm install
-* Press Enter
+
+In your terminal of choice, do the following:
+
+```
+git clone https://github.com/nss-day-cohort-32/itinerary-infinitemonkeytheorem.git
+cd itinerary-infinitemonkeytheorem
+npm install
+grunt
+```
+
 
 
