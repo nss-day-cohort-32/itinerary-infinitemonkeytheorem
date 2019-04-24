@@ -4,13 +4,13 @@ document.querySelector("#root").addEventListener("click", addToItinerary);
 let itinerary = {};
 
 function addToItinerary(event) {
-  if (event.srcElement.nodeName === "BUTTON") {
-    // select necessary card values
-    let itineraryItem = event.target.parentElement.closest(".mdc-card").querySelector("#cardTitle").innerHTML;
-    let itineraryItemLocale = event.target.parentElement.closest(".mdc-card").querySelector("#cardLocation").innerHTML;
-    let itineraryItemType = event.target.parentElement.closest(".mdc-card").id.split("--")[1].split("-")[0];
-    console.log(itineraryItemType);
+  // select necessary card values
+  let itineraryItem = event.target.parentElement.closest(".card").querySelector("#cardTitle").innerHTML;
+  let itineraryItemLocale = event.target.parentElement.closest(".card").querySelector("#eventLocation").innerHTML;
+  let itineraryItemType = event.target.parentElement.closest(".card").id.split("--")[1].split("-")[0];
+  console.log("event slice", event.target.id.slice(8, 11));
 
+  if (event.target.id.slice(8, 11) === "add") {
     // select necessary dom elements
     let myItinerary = document.querySelector("#itinerary");
     let searchItems = document.querySelector("#root");
@@ -48,12 +48,12 @@ function addToItinerary(event) {
         // put in restaurant
         break;
     };
-    console.log("itinerary", itinerary);
-    console.log("itinerary from db", itinerary);
 
-    fetch("http://localhost:8088/Itinerary", {
-      method: "POST",
-      body: JSON.stringify(itinerary)
-    });
+    document.querySelector("#itineraryContainer").classList.remove("itinerary-hide");
+
+    // fetch("http://localhost:8088/Itinerary", {
+    //   method: "GET",
+    //   body: "",
+    // });
   }
 };

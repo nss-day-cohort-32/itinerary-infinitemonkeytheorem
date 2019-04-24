@@ -23,11 +23,11 @@ module.exports = {
       <div class="card__action">
         <button
           class="card__btn card__btn--extend"
-          id="button--extend-${card.type}-${card.id}">
+          id="button--ext-${card.type}-${card.id}">
           More Info</button>
         <button
           class="card__btn card__btn--primary"
-          id="button--${card.type}-${card.id}"
+          id="button--add-${card.type}-${card.id}"
         >
           Pick me!!
     </button>
