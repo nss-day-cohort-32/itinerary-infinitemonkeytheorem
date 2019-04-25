@@ -18,7 +18,14 @@ module.exports.searchMeetups = function(searchString) {
           img = event.logo.url;
         }
         console.log(`index: ${index} url: ${img}`);
-
+        let dateTime = new Date(event.start.local);
+        let day = dateTime.toLocaleString("en-us", { weekday: "long" });
+        const month = dateTime.toLocaleString("en-us", { month: "long" });
+        const time = dateTime.toLocaleString("en-US", {
+          hour: "numeric",
+          minute: "numeric",
+          hour12: true
+        });
         let cardObj = {
           type: "Meetup" /* parks, restaurants, etc.  */,
           title: event.name.html,
@@ -27,15 +34,15 @@ module.exports.searchMeetups = function(searchString) {
             url: img,
             alt: event.name.text
           },
-          startDate: "",
-          startTime: event.start.local /* dateTime object */,
+          startDate: `${day}, ${month} ${dateTime.getDate()}`,
+          startTime: time /* dateTime object */,
           location: event.venue.address.localized_address_display,
           extendedContent: event.description.html, // innerHTML content
           id: index /* make sure to pass unique values for each card */
         };
-
+        console.log("DateTime", dateTime);
         let html = buildCard(cardObj);
-
+        console.log(html);
         document.querySelector("#root").innerHTML += html;
       });
     });
