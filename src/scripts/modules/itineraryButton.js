@@ -46,12 +46,12 @@ function addToItinerary(event) {
   let myItineraryContent = document.createElement("div");
   myItineraryContent.id = `itinerary-${itineraryItemType}`;
 
-  // clear all search results on selecting card
-  searchItems.innerHTML = "";
-
   // appends new div into itinerary container
   myItinerary.appendChild(myItineraryContent);
   console.log(itineraryDateTime);
+
+  // clear all search results on selecting card
+  searchItems.innerHTML = "";
 
   // sets event item html format
   {
@@ -98,7 +98,6 @@ function addToItinerary(event) {
   }
 
   addToDatabase("http://localhost:8088/Itinerary", itinerary);
-
   document
     .querySelector("#itineraryContainer")
     .classList.remove("itinerary-hide");
