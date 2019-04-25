@@ -1,6 +1,5 @@
 import { extendCard } from "./extendCard";
 
-// How do I select the button if it hasn't been inserted to the dom yet? Current form is clickable from anywhere in the root div.
 document.querySelector("#root").addEventListener("click", buttonHandler);
 
 let itinerary = {};
@@ -30,16 +29,11 @@ function addToDatabase(url = "", data = {}) {
 
 function addToItinerary(event) {
   // select necessary card values
-  let itineraryItem = event.target.parentElement
-    .closest(".card")
-    .querySelector("#cardTitle").innerHTML;
-  let itineraryItemLocale = event.target.parentElement
-    .closest(".card")
-    .querySelector("#eventLocation").innerHTML;
-  let itineraryItemType = event.target.parentElement
-    .closest(".card")
-    .id.split("--")[1]
-    .split("-")[0];
+  let cardDiv = event.target.parentElement.closest(".card");
+  let itineraryItem = cardDiv.querySelector("#cardTitle").innerHTML;
+  let itineraryItemLocale = cardDiv.querySelector("#eventLocation").innerHTML;
+  let itineraryItemType = cardDiv.id.split("--")[1].split("-")[0];
+  let itineraryDateTime = cardDiv.querySelector(".card__meta").innerHTML;
 
   // select necessary dom elements
   let myItinerary = document.querySelector("#itinerary");
@@ -57,6 +51,7 @@ function addToItinerary(event) {
 
   // appends new div into itinerary container
   myItinerary.appendChild(myItineraryContent);
+  console.log(itineraryDateTime);
 
   // sets event item html format
   {
@@ -74,13 +69,18 @@ function addToItinerary(event) {
     let eventLocation = document.createElement("p");
     eventLocation.innerHTML = itineraryItemLocale;
     myItineraryContent.appendChild(eventLocation);
+
+    //If event has a date/time, add to itinerary
+    // The /\S/ is regexp to check for any text characters in the element
+    if (/\S/.test(itineraryDateTime)) {
+      let eventDate = document.createElement("p");
+      eventDate.innerHTML = itineraryDateTime;
+      myItineraryContent.appendChild(eventDate);
+    }
   }
 
   // Build database object
   let databaseListing = `${itineraryItem} at ${itineraryItemLocale}`;
-
-  // append new element to appended div element
-  myItineraryContent.appendChild(listing);
 
   switch (itineraryItemType) {
     case "Park":
