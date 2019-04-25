@@ -1,6 +1,5 @@
 import { extendCard } from "./extendCard";
 
-// How do I select the button if it hasn't been inserted to the dom yet? Current form is clickable from anywhere in the root div.
 document.querySelector("#root").addEventListener("click", buttonHandler);
 
 let itinerary = {};
@@ -52,11 +51,11 @@ function addToItinerary(event) {
   let myItineraryContent = document.createElement("div");
   myItineraryContent.id = `itinerary-${itineraryItemType}`;
 
-  // clear all search results on selecting card
-  searchItems.innerHTML = "";
-
   // appends new div into itinerary container
   myItinerary.appendChild(myItineraryContent);
+
+  // clear all search results on selecting card
+  searchItems.innerHTML = "";
 
   // sets event item html format
   {
@@ -80,7 +79,7 @@ function addToItinerary(event) {
   let databaseListing = `${itineraryItem} at ${itineraryItemLocale}`;
 
   // append new element to appended div element
-  myItineraryContent.appendChild(listing);
+  // myItineraryContent.appendChild(databaseListing);
 
   switch (itineraryItemType) {
     case "Park":
@@ -98,7 +97,7 @@ function addToItinerary(event) {
   }
 
   addToDatabase("http://localhost:8088/Itinerary", itinerary);
-
+  alert(`You added ${itineraryItemType} to your itinerary!`);
   document
     .querySelector("#itineraryContainer")
     .classList.remove("itinerary-hide");

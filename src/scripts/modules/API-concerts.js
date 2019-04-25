@@ -22,7 +22,7 @@ module.exports.searchConcerts = function(input) {
           startTime: `${item.dates.start.localTime}`,
           startDate: `${item.dates.start.localDate}` /* dateTime object */,
           location: `${item._embedded.venues[0].name}`,
-          extendedContent: "Whatever Content You Decide to Include", // innerHTML content
+          extendedContent: `<a href=${item._embedded.attractions[0].url}>Buy Tickets!</a>`, // innerHTML content
           id: `${item.id}` /* make sure to pass unique values for each card */
         };
 
