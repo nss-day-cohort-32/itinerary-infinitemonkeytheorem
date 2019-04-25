@@ -98,7 +98,6 @@ function addToItinerary(event) {
   }
 
   addToDatabase("http://localhost:8088/Itinerary", itinerary);
-  alert(`You added a ${itineraryItemType} to your itinerary!`);
   document
     .querySelector("#itineraryContainer")
     .classList.remove("itinerary-hide");
