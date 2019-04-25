@@ -1,6 +1,5 @@
 import { extendCard } from "./extendCard";
 
-// How do I select the button if it hasn't been inserted to the dom yet? Current form is clickable from anywhere in the root div.
 document.querySelector("#root").addEventListener("click", buttonHandler);
 
 let itinerary = {};
