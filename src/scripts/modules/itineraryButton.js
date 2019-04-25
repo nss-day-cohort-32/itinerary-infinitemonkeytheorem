@@ -40,52 +40,49 @@ function addToItinerary(event) {
     .closest(".card")
     .id.split("--")[1]
     .split("-")[0];
-  console.log("event slice", event.target.id.slice(8, 11));
 
-  if (event.target.id.slice(8, 11) === "add") {
-    // select necessary dom elements
-    let myItinerary = document.querySelector("#itinerary");
-    let searchItems = document.querySelector("#root");
+  // select necessary dom elements
+  let myItinerary = document.querySelector("#itinerary");
+  let searchItems = document.querySelector("#root");
 
-    // create div element to contain selected events
-    let myItineraryContent = document.createElement("div");
+  let existingDiv = document.getElementById(`itinerary-${itineraryItemType}`);
+  if (existingDiv) existingDiv.remove();
 
-    // clear all search results on selecting card
-    searchItems.innerHTML = "";
+  // create div element to contain selected events
+  let myItineraryContent = document.createElement("div");
+  myItineraryContent.id = `itinerary-${itineraryItemType}`;
 
-    // appends new div into itinerary container
-    myItinerary.appendChild(myItineraryContent);
+  // clear all search results on selecting card
+  searchItems.innerHTML = "";
 
-    // sets event item html format
-    let listing = document.createTextNode(
-      `${itineraryItemType}: ${itineraryItem} at ${itineraryItemLocale}`
-    );
-    let databaseListing = `${itineraryItem} at ${itineraryItemLocale}`;
+  // appends new div into itinerary container
+  myItinerary.appendChild(myItineraryContent);
 
-    // append new element to appended div element
-    myItineraryContent.appendChild(listing);
+  // sets event item html format
+  let listing = document.createTextNode(
+    `${itineraryItemType}: ${itineraryItem} at ${itineraryItemLocale}`
+  );
+  let databaseListing = `${itineraryItem} at ${itineraryItemLocale}`;
 
-    switch (itineraryItemType) {
-      case "Park":
-        itinerary.Park = databaseListing;
-        break;
-      case "Concert":
-        itinerary.Concert = databaseListing;
-        break;
-      case "Meetup":
-        itinerary.Meetup = databaseListing;
-        break;
-      case "Restaurant":
-        itinerary.Restaurant = databaseListing;
-        break;
-    }
+  // append new element to appended div element
+  myItineraryContent.appendChild(listing);
 
-    addToDatabase("http://localhost:8088/Itinerary", itinerary);
-
-    document
-      .querySelector("#itineraryContainer")
-      .classList.remove("itinerary-hide");
+  switch (itineraryItemType) {
+    case "Park":
+      itinerary.Park = databaseListing;
+      break;
+    case "Concert":
+      itinerary.Concert = databaseListing;
+      break;
+    case "Meetup":
+      itinerary.Meetup = databaseListing;
+      break;
+    case "Restaurant":
+      itinerary.Restaurant = databaseListing;
+      break;
   }
+
+  addToDatabase("http://localhost:8088/Itinerary", itinerary);
 
   document
     .querySelector("#itineraryContainer")
