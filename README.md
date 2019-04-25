@@ -24,13 +24,13 @@ grunt
 ```
 
 ### Request your unique API keys/tokens
-```
+
 Refer to the following websites to request your API access:
 parks -- [Metro Gov API](https://dev.socrata.com/foundry/data.nashville.gov/xbru-cfzi)
 restaurants -- [Zomato API](https://developers.zomato.com/api)
 meetups -- [Eventbrite API](https://www.eventbrite.com/developer/v3/)
 concerts -- [Ticketmaster API](https://developer.ticketmaster.com/products-and-docs/apis/getting-started/)
-```
+
 
 # Group 4: Infinite Monkey Theorem
 https://en.wikipedia.org/wiki/Infinite_monkey_theorem
