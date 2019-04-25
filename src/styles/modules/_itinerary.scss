@@ -1,4 +1,46 @@
-#itineraryContainer {}
+#itineraryContainer {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  border: 1px solid gray;
+  border-radius: 10px;
+
+  & h2 {
+    margin-left: .5rem;
+  }
+
+
+}
+
+#itinerary {
+
+
+  & div {
+    /* individual itinerary item */
+
+    padding: .5rem;
+    border: 1px solid gray;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px gray;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem;
+
+    & h3 {
+      padding-left: .3rem;
+    }
+
+
+    & p {
+      padding-left: 1.5rem;
+    }
+
+  }
+
+
+}
 
 .itinerary-hide {
   display: none;

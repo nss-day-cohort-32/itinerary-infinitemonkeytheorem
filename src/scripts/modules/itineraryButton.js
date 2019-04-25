@@ -79,9 +79,6 @@ function addToItinerary(event) {
   // Build database object
   let databaseListing = `${itineraryItem} at ${itineraryItemLocale}`;
 
-  // append new element to appended div element
-  myItineraryContent.appendChild(listing);
-
   switch (itineraryItemType) {
     case "Park":
       itinerary.Park = databaseListing;

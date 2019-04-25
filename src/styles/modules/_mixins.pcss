@@ -10,31 +10,31 @@ $screen-lg-min: 992px;
 $screen-xl-min: 1200px;
 
 @define-mixin xs {
-  @media (min-width: #{$screen-xs-min}) {
-    @content;
+  @media only screen and (min-width: 425px) {
+    @mixin-content;
   }
 }
 
 @define-mixin sm {
-  @media (min-width: #{$screen-sm-min}) {
-    @content;
+  @media only screen and (min-width: 576px) {
+    @mixin-content;
   }
 }
 
 @define-mixin md {
-  @media (min-width: #{$screen-md-min}) {
-    @content;
+  @media only screen and (min-width: 768px) {
+    @mixin-content;
   }
 }
 
 @define-mixin lg {
-  @media (min-width: #{$screen-lg-min}) {
-    @content;
+  @media only screen and (min-width: 992px) {
+    @mixin-content;
   }
 }
 
 @define-mixin xl {
-  @media (min-width: #{$screen-xl-min}) {
-    @content;
+  @media only screen and (min-width: 1200px) {
+    @mixin-content;
   }
 }

@@ -1,5 +1,30 @@
-
 body {
-    background: url(img/hero-small.jpg) no-repeat center center fixed; 
-    background-size: cover;
+  background: url(img/hero-small.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+
+
+  @mixin md {
+    & {
+      background: url(img/hero-medium.jpg);
+      background-size: cover;
+      background-position: center center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+    }
+  }
+
+  @mixin lg {
+    & {
+      background: url(img/hero-4k.jpg);
+      background-size: cover;
+      background-position: center center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+    }
+  }
+
+
 }
